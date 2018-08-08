@@ -26,4 +26,19 @@ print(modulo.area_cilindro(altezza=4))
 
 # vedo le funzioni di un modulo
 print(dir(modulo))
-print(help(modulo.area_cilindro))
+#print(help(modulo.area_cilindro))
+
+print(modulo.first_n_fibo(8))
+print(modulo.quoziente_resto(44, 7))
+
+rubrica = ["Monica", "Anna", "Ugo", "Francesco"]
+print(sorted(rubrica))
+print(list("Anna"))
+print(modulo.primi(7))
+
+# comprehension, modo succinto di fare operazioni sulle liste
+# es. calcolo quadrati
+quadrati = [i ** 2 for i in range(5)]
+print(quadrati)
+
+print(id(quadrati))
