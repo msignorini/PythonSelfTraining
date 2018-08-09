@@ -42,3 +42,83 @@ quadrati = [i ** 2 for i in range(5)]
 print(quadrati)
 
 print(id(quadrati))
+
+# ----------------- DIZIONARI -----------------
+# Dizionari
+telefono = {'Sergio':'123456', 'Marco':'456123'} # creazione
+print("Telefono:", telefono)
+telefono['Carlo'] = '789456' # aggiunta
+print("Telefono:", telefono)
+telefono.pop('Sergio')
+print("Telefono:", telefono)
+
+# comprehension sui dizionari
+# es. calcolo cubi
+cubi = {i: i ** 3 for i in range(5)}
+print(cubi)
+
+# ----------------- INSIEMI -----------------
+# insieme, lista di elementi unici
+insieme = {5, 'five'}
+print(insieme)
+
+# ----------------- TABELLE -----------------
+# tabella, lista di Dizionari
+dati = [
+    {'nome':'Sofia', 'anno':1973, 'tel':'123456'},
+    {'nome':'Marco', 'anno':1988, 'tel':'145688'},
+    {'nome':'Angela', 'anno':1993, 'tel':'456963'},
+]
+print(dati)
+from pprint import pprint
+pprint(dati)
+
+def ricerca(dati, nome, chiave):
+    for dato in dati:
+        if dato['nome'] == nome:
+            return dato[chiave]
+    return None
+
+print(ricerca(dati, 'Marco', 'tel'))
+
+# ----------------- FILE -----------------
+import os
+print(os.getcwd()) # print cartella corrente
+
+# aprire un file con 'with' permette di chiuderlo automaticamente
+# alla fine del blocco istruzioni
+# anche a causa di un errore
+with open('text.txt') as myFile:
+    print("File aperto")
+
+# ----------------- LETTURA FILE -----------------
+with open('pg28885.txt') as alice:
+    testo = alice.read() # legge l'intero file
+    print(len(testo))
+    #print(testo[686:1020])
+
+# ----------------- JSON -----------------
+import json
+# salva dati su disco in JSON
+with open('dati.json', 'w') as f:
+    json.dump(dati, f)
+    print("Scrittura JSON")
+# leggo JSON
+with open('dati.json') as f:
+    nuovi_dati = json.load(f)
+    pprint(nuovi_dati)
+
+# ----------------- CSV -----------------
+# leggo il CSV, splitto per ',' e lo scrivo in JSON
+stat = []
+diz = {}
+with open('stat.csv') as f:
+    linee = f.readlines() # legge l'intero file
+    for linea in linee:
+        ts, tm, hm = linea.split(',')
+        hm = hm[0:-1]
+        diz['timestamp'],diz['temperature'],diz['humidity'] = ts, tm, hm
+        stat.append(diz)
+    #pprint(stat)
+    with open('stat.json', 'w') as js:
+        json.dump(stat, js)
