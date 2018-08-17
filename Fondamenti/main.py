@@ -82,9 +82,6 @@ def ricerca(dati, nome, chiave):
 print(ricerca(dati, 'Marco', 'tel'))
 
 # ----------------- FILE -----------------
-import os
-print(os.getcwd()) # print cartella corrente
-
 # aprire un file con 'with' permette di chiuderlo automaticamente
 # alla fine del blocco istruzioni
 # anche a causa di un errore
@@ -122,3 +119,15 @@ with open('stat.csv') as f:
     #pprint(stat)
     with open('stat.json', 'w') as js:
         json.dump(stat, js)
+
+# ----------------- CLASSI -----------------
+import dog
+myDog = dog.Dog("Rex")
+myDog.print_name()
+myDog.name = "Plutarco"
+myDog.print_name()
+
+# ----------------- FILE SYSTEM -----------------
+import os
+print(os.getcwd()) # print cartella corrente
+print(os.listdir(os.getcwd()))
