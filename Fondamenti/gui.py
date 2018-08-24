@@ -1,7 +1,5 @@
 '''
-sudo apt install python3-pyqt5
-sudo apt install pyqt5-dev
-sudo apt install python3-pyqt5.qtwebengine
+sudo apt install pyqt5-dev python3-pyqt5 python3-pyqt5.qtwebengine
 '''
 
 from PyQt5.QtCore import *
